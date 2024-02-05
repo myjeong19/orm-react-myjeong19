@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ?description, keyword, title, author -->
+    <!-- *설명 -->
+    <meta name="description" content="HTML 연습" />
+
+    <!-- *검색 키워드 -->
+    <meta name="keywords" content="요즘, 잘, 안씀" />
+
+    <!-- *제공자 -->
+    <meta name="author" content="제공자" />
+
+    <!-- SNS OpenGraph Tag -Velog-->
+    <meta name="og:site_name" content="회사" />
+    <meta name="og:title" content="소개" />
+    <meta name="og:description" content="상세 설명" />
+    <meta name="og:type" content="website" />
+    <meta name="og:url" content="링크 이동 URL" />
+    <meta name="og:image" content="썸네일" />
+    <title>이미지 태그 실습</title>
+
+    <link rel="stylesheet" href="sample.css" />
+
+    <!-- 해당 태그에서 속성 값이 없을 경우 기본 값으로 적용 -->
+    <base href="https://www.naver.com/"" target="_blank" />
+
+    <style>
+      a {
+        margin: 1rem;
+        color: #111;
+        text-decoration: none;
+        transition: 1s all;
+      }
+      a:hover {
+        color: #0099bb;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <a href="https://www.naver.com/">네이버</a>
+      <a href=""">네이버</a>
+      <a href="/DAY01//basic.html" target="_blank">홈</a
+      ><a href="#article" target="_self">아티클</a>
+    </div>
+
+    <h1>이미지 태그 실습</h1>
+
+    <!-- *절대 경로, 상대 경로 -->
+    <!-- *절대 경로: 도메인을 포함하거나, 생략된 상태에서 경로를 찾는 방법  -->
+    <!-- *상대 경로: 현재 웹 페이지를 기준으로 해당 리소스의 경로를 찾는 방법 ./, ../ -->
+
+    <div>
+      <h1>절대 경로</h1>
+      <img
+        src="https://plus.unsplash.com/premium_photo-1706911960439-32eb9fec8d8f?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw3fHx8ZW58MHx8fHx8"
+        alt="휴지"
+        style="width: 300px; height: 250px; object-fit: cover"
+      />
+
+      <!-- *도메인 생략 -->
+      <img
+        src="/DAY01/img/premium_photo-1706911960439-32eb9fec8d8f.jpeg"
+        alt="휴지"
+        style="width: 300px; height: 250px; object-fit: cover"
+      />
+
+      <!-- *사이트에 요청해서 만들어진 이미지 -->
+      <img
+        src="https://via.placeholder.com/300x250"
+        alt="휴지"
+        style="width: 300px; height: 250px; object-fit: cover"
+      />
+    </div>
+
+    <div>
+      <h1>상대 경로</h1>
+      <img
+        src="./img/premium_photo-1706911960439-32eb9fec8d8f.jpeg"
+        alt="휴지"
+        style="width: 300px; height: 250px; object-fit: cover"
+      />
+      <img
+        src="./img/premium_photo-1706911960439-32eb9fec8d8f.jpeg"
+        alt="휴지"
+        style="width: 300px; height: 250px; object-fit: cover"
+      />
+      <img
+        src="./img/premium_photo-1706911960439-32eb9fec8d8f.jpeg"
+        alt="휴지"
+        style="width: 300px; height: 250px; object-fit: cover"
+      />
+    </div>
+
+    <div>
+      <h1>대체 이미지</h1>
+      <!-- *특정 이미지가 없는 경우 대체 이미지 보여주기 -->
+      <img
+        src="/DAY01/img/premium_photo-1706911960439-32eb9fec8d8f.jpg"
+        alt="휴지"
+      />
+      <img src="/DAY1-HTML/code1.jpg" alt="휴지" />
+    </div>
+    <!-- onerror="this.src='/DAY01/img/premium_photo-1706911960439-32eb9fec8d8f.jpg';this.setAttribute('alt','');" -->
+
+    <div>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem,
+        molestias dicta corrupti excepturi, ab autem veritatis fugit quidem
+        repellendus earum velit maxime! Quia porro distinctio aut molestiae vel
+        voluptate veniam.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. <br />
+        Exercitationem, molestias dicta corrupti excepturi, <br />
+        ab autem veritatis fugit quidem repellendus earum velit maxime! <br />
+        Quia porro distinctio aut molestiae vel voluptate veniam.
+      </p>
+    </div>
+
+    <div id="article">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem,
+        molestias dicta corrupti excepturi, ab autem veritatis fugit quidem
+        repellendus earum velit maxime! Quia porro distinctio aut molestiae vel
+        voluptate veniam.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem,
+        molestias dicta corrupti excepturi, ab autem veritatis fugit quidem
+        repellendus earum velit maxime! Quia porro distinctio aut molestiae vel
+        voluptate veniam.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem,
+        molestias dicta corrupti excepturi, ab autem veritatis fugit quidem
+        repellendus earum velit maxime! Quia porro distinctio aut molestiae vel
+        voluptate veniam.
+      </p>
+    </div>
+
+
+  </body>
+</html>
