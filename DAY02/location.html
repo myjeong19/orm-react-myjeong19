@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Location</title>
+  </head>
+  <body>
+    <div>
+      <h1>Location</h1>
+      <button id="location-button">Get Location</button>
+
+      <p id="info">TEST</p>
+    </div>
+
+    <script>
+      const locationButton = document.getElementById('location-button');
+      const info = document.getElementById('info');
+
+      const showPosition = position =>
+        (info.innerHTML = `위도:${position.coords.latitude} <br> 경도:${position.coords.longitude} `);
+
+      const handleGetLocation = () =>
+        navigator.geolocation.getCurrentPosition(showPosition);
+
+      locationButton.addEventListener('click', handleGetLocation);
+    </script>
+  </body>
+</html>
