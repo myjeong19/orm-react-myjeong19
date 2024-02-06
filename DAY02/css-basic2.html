@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Basic</title>
+
+    <style>
+      a {
+        color: #111;
+        transition: 1s all;
+        text-decoration: none;
+      }
+
+      a:first-child:hover {
+        color: #00bb88;
+      }
+
+      a:nth-child(2):visited {
+        color: #0099bb;
+      }
+
+      a:nth-child(3):active {
+        color: #ff0000;
+      }
+
+      a:nth-child(4):link {
+        color: rgb(255, 208, 0);
+      }
+
+      hr {
+        margin: 3rem 0 3rem 0;
+      }
+
+      p {
+        color: #00bb88;
+      }
+
+      .class {
+        color: #88bb11;
+      }
+
+      #id {
+        color: #0099bb;
+      }
+
+      input[type='text'] {
+        border: none;
+      }
+
+      input[type='number'] {
+        border: none;
+        border-bottom: 1px solid #111;
+      }
+
+      ul > a {
+        display: block;
+        border-top-left-radius: 1rem;
+        text-align: center;
+        background-color: #bb22ff;
+      }
+
+      ul li a {
+        display: block;
+        border-bottom-left-radius: 1rem;
+        background: #111;
+        color: #fff;
+      }
+
+      h1 + strong {
+        color: #fff;
+      }
+
+      h3 ~ span {
+        display: block;
+        background-color: #ff0000;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>선택자 사용하기</h1>
+
+    <div>
+      <p>요소 선택자</p>
+      <h2 class="class">클래스 선택자</h2>
+      <h2 class="class">클래스 선택자</h2>
+      <h2 class="class">클래스 선택자</h2>
+      <strong id="id">아이디 선택자</strong>
+    </div>
+
+    <hr />
+
+    <div>
+      <strong>속성 선택자</strong>
+
+      <div>
+        <input type="text" name="KYOBO" placeholder="KYOBO" />
+        <input type="number" name="KYOBO" placeholder="NUMBER" />
+      </div>
+
+      <div>
+        <input type="text" name="YES24" placeholder="YES24" />
+        <input type="number" name="YES24" placeholder="NUMBER" />
+      </div>
+    </div>
+
+    <hr />
+
+    <div>
+      <a href="https://www.naver.com/" target="_blank">NAVER</a>
+      <a href="https://www.naver.com/" target="_blank">NAVER</a>
+      <a href="https://www.naver.com/" target="_blank">NAVER</a>
+      <a href="https://www.naver.com/" target="_blank">NAVER</a>
+    </div>
+
+    <hr />
+
+    <div>
+      <strong>복합 선택자</strong>
+
+      <ul>
+        <a href="#">Link</a>
+        <li>
+          <a href="#">li > a</a>
+        </li>
+        <li>
+          <p>list item 1</p>
+        </li>
+        <li>
+          <p>list item 2</p>
+        </li>
+      </ul>
+
+      <div>
+        <h1 href="#">TEST 1</h1>
+        <strong>TEST 2</strong>
+        <h3>TEST 3</h3>
+        <span>TEST 4</span>
+      </div>
+    </div>
+  </body>
+</html>

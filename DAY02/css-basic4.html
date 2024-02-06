@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Basic</title>
+    <link rel="stylesheet" href="./css/css-basic4.css" />
+  </head>
+  <style>
+    * {
+      margin: 0;
+      text-align: center;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    h1 {
+      margin: 3rem 0 3rem 0;
+    }
+
+    p {
+      text-align: center;
+    }
+
+    hr {
+      margin: 3rem 0 3rem 0;
+    }
+
+    #dashed {
+      border: 1rem dashed #00abbb;
+    }
+
+    #dotted {
+      border: 1rem dotted #a5bb00;
+    }
+
+    #double {
+      border: 1rem double #00bb54;
+    }
+
+    #solid {
+      border: 1rem solid #2800bb;
+    }
+
+    #box,
+    #margin,
+    #padding {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+    }
+
+    #box {
+      width: 20rem;
+      height: 20rem;
+      background-color: #111;
+    }
+
+    #margin {
+      margin: 1rem;
+      width: 15rem;
+      height: 15rem;
+      background-color: #fff;
+    }
+
+    #padding {
+      padding: 1rem;
+      width: 10rem;
+      height: 10rem;
+      background-color: #7d5252;
+    }
+  </style>
+  <body>
+    <h1>border</h1>
+    <div class="border-box">
+      <p id="dashed">dashed</p>
+      <p id="dotted">dotted</p>
+      <p id="double">dubble</p>
+      <p id="solid">solid</p>
+    </div>
+
+    <hr />
+
+    <h1>margin, padding</h1>
+    <div id="box">
+      <div id="margin">
+        <p>margin</p>
+        <div id="padding">padding</div>
+      </div>
+    </div>
+  </body>
+</html>
