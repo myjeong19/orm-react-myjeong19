@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Layout Fixed</title>
+
+    <style>
+      * {
+        border-collapse: collapse;
+      }
+
+      .wrapper {
+        width: 1000px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .box {
+        display: flex;
+      }
+
+      .top-header {
+        width: 1000px;
+        border: 1px solid #111;
+        height: 10vh;
+      }
+
+      .content {
+        width: 750px;
+        height: 800px;
+        border: 1px solid #111;
+      }
+
+      aside {
+        float: right;
+        width: 350px;
+        height: 800px;
+        border: 1px solid #111;
+      }
+
+      footer {
+        border: 1px solid #111;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="top-header">
+        <h1 class="header-title">Fixed Layout</h1>
+      </header>
+
+      <div class="box">
+        <section class="content">
+          <h3 class="content-title">Main Article</h3>
+        </section>
+        <aside>
+          <h3>Right Nav</h3>
+        </aside>
+      </div>
+
+      <footer>
+        <h3>Footer</h3>
+      </footer>
+    </div>
+  </body>
+</html>

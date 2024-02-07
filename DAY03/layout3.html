@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Layout</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        border-radius: 1rem;
+        color: #fff;
+      }
+
+      .menu,
+      .left-menu,
+      .article,
+      .footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid #fff;
+      }
+
+      body {
+        background-color: #333;
+      }
+
+      .container {
+        margin-top: 10rem;
+      }
+
+      .menu {
+        width: 100vw;
+        height: 10rem;
+      }
+
+      .main .left-menu {
+        float: left;
+        width: 20vw;
+        height: 50rem;
+      }
+
+      .article {
+        width: 80vw;
+        height: 40rem;
+      }
+
+      .footer {
+        width: 80vw;
+        height: 10rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="menu">GNB Menu</div>
+      <div class="main">
+        <div class="left-menu">LEFT Menu</div>
+        <div class="content">
+          <div class="article">Main Article</div>
+          <div class="footer">Footer</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

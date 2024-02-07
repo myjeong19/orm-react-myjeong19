@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Media Query</title>
+
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+      }
+
+      .background {
+        background-color: #333;
+        width: 150px;
+        height: 150px;
+        transition: 1s all;
+      }
+
+      @media (max-width: 800px) {
+        .background {
+          width: 100px;
+          height: 100px;
+          background-color: #fff;
+          border: 1px solid #111;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .background {
+          width: 150px;
+          height: 150px;
+          background-color: #333;
+          border: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="background"></div>
+  </body>
+</html>

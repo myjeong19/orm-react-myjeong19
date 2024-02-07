@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Z-Index</title>
+
+    <style>
+      div {
+        display: flex;
+        justify-content: center;
+        align-items: end;
+        position: absolute;
+        left: 25vw;
+        width: 50px;
+        height: 50px;
+        border-radius: 1rem;
+        border: 1px solid #111111;
+      }
+
+      div:first-child {
+        background-color: #12791e;
+        width: 500px;
+        height: 500px;
+        z-index: -1;
+      }
+
+      div:nth-child(2) {
+        background-color: #539853;
+        width: 450px;
+        height: 450px;
+        z-index: 0;
+      }
+
+      div:nth-child(3) {
+        width: 400px;
+        height: 400px;
+        z-index: 1;
+        background-color: #4b8b4d;
+      }
+
+      div:nth-child(4) {
+        width: 350px;
+        height: 350px;
+        z-index: 1;
+        background-color: #85fa89;
+        z-index: 99;
+      }
+    </style>
+  </head>
+  <body>
+    <div>-1</div>
+    <div>0</div>
+    <div>1</div>
+    <div>
+      100
+      <button id="button">Button</button>
+    </div>
+
+    <script>
+      const button = document.getElementById('button');
+      const handleButton = () => alert('Hi!');
+      button.addEventListener('click', handleButton);
+    </script>
+  </body>
+</html>
