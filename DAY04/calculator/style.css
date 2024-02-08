@@ -8,7 +8,7 @@ body {
   justify-content: center;
   align-items: center;
   background-color: #f0f0f0;
-  background-image: url('../assets/rick-rothenberg-UvVQnkhCLfo-unsplash.jpg');
+  background-image: url('./assets/rick-rothenberg-UvVQnkhCLfo-unsplash.jpg');
   object-fit: cover;
 }
 
