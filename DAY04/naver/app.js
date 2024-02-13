@@ -1,6 +1,6 @@
 const localeSwitch = document.getElementById('locale_switch');
 
-const onChange = (lang, langText) => {
+const changeLang = (lang, langText) => {
   const loginOptionId = document.getElementById('login-option__id');
   const disposable = document.querySelector('.disposable');
   const loginOptionQr = document.getElementById('login-option__Qr');
@@ -48,10 +48,10 @@ const onChange = (lang, langText) => {
   findText[2].innerText = signUp;
 };
 
-const handleChangeLang = e => {
+const handleSelect = e => {
   const lang = e.target.value;
 
-  const langText = {
+  const langs = {
     ko_KR: {
       loginOptionIdText: 'ID 로그인',
       loginOptionQrText: 'QR 코드',
@@ -84,7 +84,7 @@ const handleChangeLang = e => {
       info: '如果此PC被多个人使用，请尝试一下。',
       inputId: '帐号',
       inputPassword: '密码',
-      buttonText: 'Sign in',
+      buttonText: '登录',
       langKeep: '维持登录状态',
       langIpText: 'IP安全',
       forgotPassword: '查询密码',
@@ -106,7 +106,7 @@ const handleChangeLang = e => {
     },
   };
 
-  onChange(lang, langText[lang]);
+  changeLang(lang, langs[lang]);
 };
 
-localeSwitch.addEventListener('change', handleChangeLang);
+localeSwitch.addEventListener('change', handleSelect);
