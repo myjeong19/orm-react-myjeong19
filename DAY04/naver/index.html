@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>네이버 : 로그인</title>
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="header">
+        <div class="header__inner">
+          <a class="inner__logo" href="www.naver.com"></a>
+          <div class="lang">
+            <select name="locale_switch" id="locale_switch">
+              <option value="ko_KR">한국어</option>
+              <option value="en_US">English</option>
+              <option value="zh-HansCN">中文(简体)</option>
+              <option value="zh-Hant_TW">中文(台灣)</option>
+            </select>
+          </div>
+        </div>
+      </header>
+      <div class="container">
+        <div class="login_wrap" role="tablist">
+          <ul class="menu_wrap">
+            <li class="menu_item on">
+              <a
+                href="#none"
+                id="loinid"
+                class="menu_id on"
+                role="tab"
+                aria-selected="true"
+              >
+                <span class="menu_text"
+                  ><span class="text">ID 로그인</span></span
+                >
+              </a>
+            </li>
+            <li class="menu_item" role="presentation">
+              <a
+                href="#none"
+                id="ones"
+                class="menu_ones"
+                role="tab"
+                aria-selected="false"
+              >
+                <span class="menu_text"
+                  ><span class="text">일회용 번호</span></span
+                >
+              </a>
+            </li>
+            <li class="menu_item" role="presentation">
+              <a
+                href="#none"
+                id="qrcode"
+                class="menu_qr"
+                role="tab"
+                aria-selected="false"
+              >
+                <span class="menu_text"><span class="text">QR코드</span></span>
+              </a>
+
+              <!--넛지배너-->
+              <div class="nudge_banner" id="nudge_tooltip">
+                <span class="nudge_text"
+                  >PC방 등 공용PC라면 QR코드 로그인이 더 안전해요.</span
+                >
+                <button type="button" id="nudge_close" class="nudge_close">
+                  <span class="icon_nudge_close">x</span>
+                </button>
+              </div>
+            </li>
+          </ul>
+
+          <form action="form">
+            <div class="form-wrap">
+              <div class="form-inner">
+                <div>
+                  <div class="id_pw_wrap">
+                    <input type="text" placeholder="아이디" id="id" />
+                    <input
+                      type="password"
+                      placeholder="비밀번호"
+                      id="password"
+                    />
+                  </div>
+                  <div class="login_keep_wrap">
+                    <div class="keep_check">
+                      <input
+                        type="checkbox"
+                        id="keep"
+                        name="nvlong"
+                        class="input_keep"
+                        value="off"
+                      />
+                      <label for="keep" class="keep_text"
+                        >로그인 상태 유지</label
+                      >
+                    </div>
+                    <div class="ip_check">
+                      <a
+                        href="/login/ext/help_ip3.html"
+                        target="_blank"
+                        id="ipguide"
+                        title="IP보안"
+                        ><span class="ip_text">IP보안</span></a
+                      >
+                      <span class="switch">
+                        <input
+                          type="checkbox"
+                          id="switch"
+                          class="switch_checkbox"
+                          value="off"
+                        />
+                        <label for="switch" class="switch_btn">
+                          <span class="blind" id="switch_blind">off</span>
+                        </label>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="btn_login_wrap">
+                    <button type="submit" class="btn_login" id="log.login">
+                      <span class="btn_text">로그인</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+
+          <ul class="find_wrap">
+            <li>
+              <a
+                target="_blank"
+                href="https://nid.naver.com/user2/api/route?m=routePwInquiry&amp;lang=ko_KR"
+                class="find_text"
+                >비밀번호 찾기</a
+              >
+            </li>
+            <li>
+              <a
+                target="_blank"
+                href="https://nid.naver.com/user2/api/route?m=routeIdInquiry&amp;lang=ko_KR"
+                class="find_text"
+                >아이디 찾기</a
+              >
+            </li>
+            <li>
+              <a
+                target="_blank"
+                href="https://nid.naver.com/user2/V2Join?m=agree&amp;lang=ko_KR&amp;domain=www.naver.com"
+                class="find_text"
+                >회원가입</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="banner_wrap">
+          <img
+            src="https://ssl.pstatic.net/melona/libs/1378/1378592/0490a2dccaaa79f1eae0_20240205150258502.jpg"
+            alt=""
+          />
+        </div>
+
+        <footer class="footer">
+          <ul class="footer__ul">
+            <li class="footer__item">이용약관</li>
+            <li class="footer__item">개인정보처리방침</li>
+            <li class="footer__item">책임의 한계와 법적고지</li>
+            <li class="footer__item">회원정보 고객센터</li>
+          </ul>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>
