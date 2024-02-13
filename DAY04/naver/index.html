@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
     <title>네이버 : 로그인</title>
+    <script src="./app.js" defer></script>
   </head>
   <body>
     <div class="wrap">
@@ -33,11 +34,13 @@
                 aria-selected="true"
               >
                 <span class="menu_text"
-                  ><span class="text">ID 로그인</span></span
+                  ><span class="text" id="login-option__id"
+                    >ID 로그인</span
+                  ></span
                 >
               </a>
             </li>
-            <li class="menu_item" role="presentation">
+            <li class="menu_item disposable" role="presentation">
               <a
                 href="#none"
                 id="ones"
@@ -58,7 +61,9 @@
                 role="tab"
                 aria-selected="false"
               >
-                <span class="menu_text"><span class="text">QR코드</span></span>
+                <span class="menu_text"
+                  ><span class="text" id="login-option__Qr">QR코드</span></span
+                >
               </a>
 
               <!--넛지배너-->
