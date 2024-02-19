@@ -1,0 +1,10 @@
+.label {
+  display: block;
+  width: 100px;
+}
+
+.primitive__input-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
