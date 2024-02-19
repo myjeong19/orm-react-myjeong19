@@ -4,9 +4,6 @@ import classes from './FunctionChild.module.css'
 export const FunctionChild = () => {
     const [count, setCount] = useState(0)
 
-    console.log(useState)
-    console.dir(useState)
-
     const handleClickCount = () => {
         setCount((count) => count + 1)
     }
