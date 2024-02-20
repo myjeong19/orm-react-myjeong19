@@ -1,0 +1,22 @@
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #111;
+}
+
+.form h1,
+.form .product-name,
+.form .product-price {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  margin: 1rem;
+}
+
+.form .product-name input,
+.form .product-price input {
+  display: block;
+  height: 2.1rem;
+}
