@@ -1,0 +1,19 @@
+.tabel {
+  width: 800px;
+  border: 1px solid #111;
+  border-radius: 1rem;
+}
+
+.th {
+  border-right: 1px solid #111;
+  border-bottom: 1px solid #111;
+}
+
+.th:last-child {
+  border: none;
+  border-bottom: 1px solid #111;
+}
+
+.td {
+  border: 1px solid #111;
+}
