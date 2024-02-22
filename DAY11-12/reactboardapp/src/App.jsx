@@ -30,7 +30,7 @@ function App() {
   const [userValues, setUserValues] = useState(USER_VALUES);
 
   const handleList = (targetName, userValue) => {
-    const listActions = {
+    const actions = {
       add: () => {
         setList(prevList => {
           const updatedUserValues = {
@@ -67,7 +67,7 @@ function App() {
     };
 
     setUserValues(USER_VALUES);
-    return listActions[targetName]();
+    return actions[targetName]();
   };
 
   return (
