@@ -1,0 +1,20 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 800px;
+  height: 250px;
+  border: 1px solid #111;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form label {
+  display: inline-block;
+  width: 100px;
+}
+
+.form .input-box {
+  margin: 1rem;
+}

@@ -1,10 +1,7 @@
 import classes from './css/Form.module.css';
 
 export const Form = ({ selectedProduct }) => {
-  console.log(selectedProduct);
   const { productName, productPrice } = selectedProduct;
-
-  console.log(productName);
 
   return (
     <form className={classes.form}>
