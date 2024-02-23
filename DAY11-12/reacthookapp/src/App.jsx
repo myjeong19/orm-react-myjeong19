@@ -3,6 +3,8 @@ import './App.css';
 // import { UserReducerHook } from './hooks/UserReducerHook';
 // import { UseEffectHook } from './hooks/UseEffectHook';
 import { UseMemo } from './hooks/UseMemo';
+import { UseCallback } from './hooks/UseCallback';
+import { UseRef } from './hooks/UseRef';
 
 function App() {
   return (
@@ -14,6 +16,10 @@ function App() {
       <UseEffectHook />
       <hr /> */}
       <UseMemo />
+      <hr />
+      <UseCallback />
+      <hr />
+      <UseRef />
     </div>
   );
 }

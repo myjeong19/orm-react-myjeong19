@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useRef } from 'react';
 
 const getAverage = numbers => {
   if (numbers.length === 0) return 0;
@@ -7,12 +7,12 @@ const getAverage = numbers => {
   return sum / numbers.length;
 };
 
-export const UseCallback = () => {
+export const UseRef = () => {
   const [number, setNumber] = useState(0);
   const [list, setList] = useState([]);
 
+  const numberTag = useRef(null);
   const average = getAverage(list);
-
   const onNumberChange = e => {
     setNumber(+e.target.value);
   };
@@ -22,6 +22,8 @@ export const UseCallback = () => {
       setList(prevList => {
         const updatedList = prevList.concat(+number);
         setNumber(0);
+
+        numberTag.current.focus();
         return updatedList;
       });
     },
@@ -30,7 +32,12 @@ export const UseCallback = () => {
 
   return (
     <>
-      <input type='text' value={number} onChange={onNumberChange} />
+      <input
+        ref={numberTag}
+        type='number'
+        value={number}
+        onChange={onNumberChange}
+      />
       <button onClick={handleAdd}>ADD</button>
 
       <div>

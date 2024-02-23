@@ -17,6 +17,7 @@ export const UseMemo = () => {
     setList(prevList => {
       const updatedList = prevList.concat(+number);
       setNumber(0);
+
       return updatedList;
     });
   };
