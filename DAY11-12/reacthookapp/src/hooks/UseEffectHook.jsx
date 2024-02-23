@@ -1,4 +1,4 @@
-import { useEffect, useState, useReducer } from 'react';
+import { useEffect, useState } from 'react';
 
 const USER_VALEUS = {
   name: '',
