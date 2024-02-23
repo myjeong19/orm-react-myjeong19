@@ -1,0 +1,26 @@
+.ul {
+  display: flex;
+}
+
+.li {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+  border: 1px solid #111;
+  border-radius: 1rem;
+  width: 200px;
+  height: 250px;
+  list-style: none;
+}
+
+.li strong {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #111;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+}
