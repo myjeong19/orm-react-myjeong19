@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef } from 'react';
+import { useState, useCallback, useRef, useEffect } from 'react';
 
 const getAverage = numbers => {
   if (numbers.length === 0) return 0;
@@ -13,10 +13,7 @@ export const UseRef = () => {
 
   const numberTag = useRef(null);
   const average = getAverage(list);
-  const onNumberChange = e => {
-    setNumber(+e.target.value);
-  };
-
+  const onNumberChange = e => setNumber(+e.target.value);
   const handleAdd = useCallback(
     e => {
       setList(prevList => {
@@ -29,6 +26,8 @@ export const UseRef = () => {
     },
     [number]
   );
+
+  useEffect(() => numberTag.current.focus(), []);
 
   return (
     <>
