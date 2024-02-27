@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { AppContext } from '../App';
 
 export const Counter = () => {
-  const count = useContext(AppContext);
+  const [count] = useContext(AppContext);
 
   return (
     <>

@@ -1,6 +1,6 @@
 import React from 'react';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import '../node_modules/bootstrap/scss/bootstrap.scss';
+// import '../node_modules/bootstrap/scss/bootstrap.scss';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import { Footer } from './components/Footer';
@@ -23,8 +23,8 @@ function App() {
             </Routes>
           </div>
         </div>
+        <Footer />
       </div>
-      <Footer />
     </BrowserRouter>
   );
 }
