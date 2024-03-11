@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { useSelector } from 'react-redux';
 
@@ -12,14 +12,14 @@ import {
   Card,
 } from 'reactstrap';
 
-//아코디언 탭 구현 컴포넌트
 import CustomCollapse from '../../../components/CustomCollapse';
 
 //Import Images
 import avatar1 from '../../../assets/images/users/avatar-1.jpg';
 
 const Profile = props => {
-  //현재 로그이한 사용자의 정보를 저장하기위한 사용자 상태값 정의
+  // const [user, setUser] = useState({});
+  const user = useSelector(state => state.Auth.loginUser);
 
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [isOpen1, setIsOpen1] = useState(true);
@@ -37,27 +37,8 @@ const Profile = props => {
 
   const toggle = () => setDropdownOpen(!dropdownOpen);
 
-  const token = useSelector(state => state.Auth.token);
-  const loginUser = useSelector(state => state.Auth.loginUser);
-
-  const [user, setUser] = useState({});
-
-  useEffect(() => {
-    axios
-      .get('http://localhost:3005/api/member/profile', {
-        headers: { Authorization: `Bearer ${token}` },
-      })
-      .then(res => {
-        console.log(res.data.data);
-        setUser(res.data.data);
-      })
-      .catch(err => {
-        console.error('백엔드 에러', err);
-      });
-  }, []);
-
   return (
-    <>
+    <React.Fragment>
       <div>
         <div className='px-4 pt-4'>
           <div className='user-chat-nav float-end'>
@@ -82,7 +63,7 @@ const Profile = props => {
         <div className='text-center p-4 border-bottom'>
           <div className='mb-4'>
             <img
-              src={user.profile_img_path || avatar1}
+              src={avatar1}
               className='rounded-circle avatar-lg img-thumbnail'
               alt='chatvia'
             />
@@ -126,7 +107,7 @@ const Profile = props => {
 
                 <div className='mt-4'>
                   <p className='text-muted mb-1'>Time</p>
-                  <h5 className='font-size-14'>11:40 AM</h5>
+                  <h5 className='font-size-14'>{user.reg_date}</h5>
                 </div>
 
                 <div className='mt-4'>
@@ -143,7 +124,7 @@ const Profile = props => {
         </div>
         {/* end user-profile-desc  */}
       </div>
-    </>
+    </React.Fragment>
   );
 };
 

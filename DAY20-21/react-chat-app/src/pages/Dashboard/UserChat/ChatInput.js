@@ -1,184 +1,214 @@
-import React, { useState } from "react";
-import {
-  Button,
-  Input,
-  Row,
-  Col,
-  UncontrolledTooltip,
-  ButtonDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  Label,
-  Form,
-} from "reactstrap";
+import React, { useState } from 'react';
+import { Input, InputGroup } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
-//yarn add emoji-picker-react
-import EmojiPicker from "emoji-picker-react";
+//simplebar
+//yarn add simplebar-react
+import SimpleBar from 'simplebar-react';
 
-const ChatInput = (props) => {
-  //사용자 메시지 입력 데이터 상태값정의
-  const [textMessage, settextMessage] = useState("");
+import OnlineUsers from './OnlineUsers';
 
-  const [isOpen, setisOpen] = useState(false);
-
-  const [file, setfile] = useState({
-    name: "",
-    size: "",
+const Chats = props => {
+  const [chatBar, setChatBar] = useState({
+    searchChat: '조회',
+    recentChatList: props.recentChatList,
   });
 
-  const [fileImage, setfileImage] = useState("");
+  const openUserChat = (e, chat) => {
+    console.log('선택한 채팅 채널정보============', chat);
 
-  const toggle = () => setisOpen(!isOpen);
-
-  //function for text input value change
-  const handleChange = (e) => {
-    settextMessage(e.target.value);
-  };
-
-  const onEmojiClick = (event) => {
-    settextMessage(textMessage + event.emoji);
-  };
-
-  //function for file input change
-  const handleFileChange = (e) => {
-    if (e.target.files.length !== 0)
-      setfile({
-        name: e.target.files[0].name,
-        size: e.target.files[0].size,
-      });
-  };
-
-  //function for image input change
-  const handleImageChange = (e) => {
-    if (e.target.files.length !== 0)
-      setfileImage(URL.createObjectURL(e.target.files[0]));
-  };
-
-  //현재 사용자가 신규 전송 메시지를 입력 전송버튼을 클릭하면 실행되는 함수
-  //신규 메시지를 리덕스 전역데이터의 Chat.sendMessage 값을 수정해준다.
-  const onaddMessage = (e, textMessage) => {
     e.preventDefault();
 
-    //if text value is not emptry then call onaddMessage function
-    if (textMessage !== "") {
-      //전역상태공간의 Chat.sendMessage 값을 갱신해야한다.
-      var sendData = {
-        channel_id: 0,
-        member_id: props.loginUser.member_id,
-        name: props.loginUser.name,
-        profile_url: props.loginUser.profile_url,
-        message: textMessage,
-      };
+    //find index of current chat in array
+    var index = props.recentChatList.indexOf(chat);
+    console.log('선택한 채팅 채널정보index============', index);
 
-      props.setSendMessage(sendData);
+    // set activeUser
+    props.activeUser(index);
 
-      //사용자 메시지 입력박스내 값을 초기화해준다.
-      settextMessage("");
+    var chatList = document.getElementById('chat-list');
+    var clickedItem = e.target;
+    var currentli = null;
+
+    if (chatList) {
+      var li = chatList.getElementsByTagName('li');
+      //remove coversation user
+      for (var i = 0; i < li.length; ++i) {
+        if (li[i].classList.contains('active')) {
+          li[i].classList.remove('active');
+        }
+      }
+      //find clicked coversation user
+      for (var k = 0; k < li.length; ++k) {
+        if (li[k].contains(clickedItem)) {
+          currentli = li[k];
+          break;
+        }
+      }
     }
 
-    //if file input value is not empty then call onaddMessage function
-    if (file.name !== "") {
-      props.onaddMessage(file, "fileMessage");
-      setfile({
-        name: "",
-        size: "",
-      });
+    //activation of clicked coversation user
+    if (currentli) {
+      currentli.classList.add('active');
     }
 
-    //if image input value is not empty then call onaddMessage function
-    if (fileImage !== "") {
-      props.onaddMessage(fileImage, "imageMessage");
-      setfileImage("");
+    var userChat = document.getElementsByClassName('user-chat');
+    if (userChat) {
+      userChat[0].classList.add('user-chat-show');
+    }
+
+    //removes unread badge if user clicks
+    var unread = document.getElementById('unRead' + chat.id);
+    if (unread) {
+      unread.style.display = 'none';
     }
   };
 
   return (
     <React.Fragment>
-      <div className="chat-input-section p-3 p-lg-4 border-top mb-0 ">
-        <Form onSubmit={(e) => onaddMessage(e, textMessage)}>
-          <Row className="g-0">
-            <Col>
-              <div>
-                <Input
-                  type="text"
-                  value={textMessage}
-                  onChange={handleChange}
-                  className="form-control form-control-lg bg-light border-light"
-                  placeholder="Enter Message..."
-                />
-              </div>
-            </Col>
-            <Col xs="auto">
-              <div className="chat-input-links ms-md-2">
-                <ul className="list-inline mb-0 ms-0">
-                  <li className="list-inline-item">
-                    <ButtonDropdown
-                      className="emoji-dropdown"
-                      direction="up"
-                      isOpen={isOpen}
-                      toggle={toggle}
-                    >
-                      <DropdownToggle
-                        id="emoji"
-                        color="link"
-                        className="text-decoration-none font-size-16 btn-lg waves-effect"
-                      >
-                        <i className="ri-emotion-happy-line"></i>
-                      </DropdownToggle>
-                      <DropdownMenu className="dropdown-menu-end">
-                        <EmojiPicker onEmojiClick={onEmojiClick} />
-                      </DropdownMenu>
-                    </ButtonDropdown>
-                    <UncontrolledTooltip target="emoji" placement="top">
-                      Emoji
-                    </UncontrolledTooltip>
-                  </li>
-                  <li className="list-inline-item input-file">
-                    <Label
-                      id="files"
-                      className="btn btn-link text-decoration-none font-size-16 btn-lg waves-effect"
-                    >
-                      <i className="ri-attachment-line"></i>
-                      <Input type="file" name="fileInput" size="60" />
-                    </Label>
-                    <UncontrolledTooltip target="files" placement="top">
-                      Attached File
-                    </UncontrolledTooltip>
-                  </li>
-                  <li className="list-inline-item input-file">
-                    <Label
-                      id="images"
-                      className="me-1 btn btn-link text-decoration-none font-size-16 btn-lg waves-effect"
-                    >
-                      <i className="ri-image-fill"></i>
-                      <Input
-                        accept="image/*"
-                        type="file"
-                        name="fileInput"
-                        size="60"
-                      />
-                    </Label>
-                    <UncontrolledTooltip target="images" placement="top">
-                      Images
-                    </UncontrolledTooltip>
-                  </li>
-                  <li className="list-inline-item">
-                    <Button
-                      type="submit"
-                      color="primary"
-                      className="font-size-16 btn-lg chat-send waves-effect waves-light"
-                    >
-                      <i className="ri-send-plane-2-fill"></i>
-                    </Button>
-                  </li>
-                </ul>
-              </div>
-            </Col>
-          </Row>
-        </Form>
+      <div>
+        <div className='px-4 pt-4'>
+          <h4 className='mb-4'>Chats</h4>
+          <div className='search-box chat-search-box'>
+            <InputGroup className='mb-3 rounded-3'>
+              <span
+                className='input-group-text text-muted bg-light pe-1 ps-3'
+                id='basic-addon1'
+              >
+                <i className='ri-search-line search-icon font-size-18'></i>
+              </span>
+              <Input
+                type='text'
+                className='form-control bg-light'
+                placeholder='Search messages or users'
+              />
+            </InputGroup>
+          </div>
+          {/* Search Box */}
+        </div>
+
+        {/* online users */}
+        <OnlineUsers />
+
+        {/* Start chat-message-list  */}
+        <div>
+          <h5 className='mb-3 px-3 font-size-16'>Recent</h5>
+          <SimpleBar className='chat-message-list'>
+            <ul
+              className='list-unstyled chat-list chat-user-list px-2'
+              id='chat-list'
+            >
+              {chatBar.recentChatList.map((chat, key) => (
+                <li
+                  key={key}
+                  id={'conversation' + key}
+                  className={
+                    chat.unRead
+                      ? 'unread'
+                      : chat.isTyping
+                      ? 'typing'
+                      : key === props.active_user
+                      ? 'active'
+                      : ''
+                  }
+                >
+                  <Link to='#' onClick={e => openUserChat(e, chat)}>
+                    <div className='d-flex'>
+                      {chat.profilePicture === 'Null' ? (
+                        <div
+                          className={
+                            'chat-user-img ' +
+                            chat.status +
+                            ' align-self-center me-1 ms-0'
+                          }
+                        >
+                          <div className='avatar-xs'>
+                            <span className='avatar-title rounded-circle bg-primary-subtle text-primary'>
+                              {chat.name.charAt(0)}
+                            </span>
+                          </div>
+                          {chat.status && <span className='user-status'></span>}
+                        </div>
+                      ) : (
+                        <div
+                          className={
+                            'chat-user-img ' +
+                            chat.status +
+                            ' align-self-center me-1 ms-0'
+                          }
+                        >
+                          <img
+                            src={chat.profilePicture}
+                            className='rounded-circle avatar-xs'
+                            alt='chatvia'
+                          />
+                          {chat.status && <span className='user-status'></span>}
+                        </div>
+                      )}
+
+                      <div className='flex-grow-1 overflow-hidden'>
+                        <h5 className='text-truncate font-size-15 mb-1 ms-3'>
+                          {chat.name}
+                        </h5>
+                        <p className='chat-user-message font-size-14 text-truncate mb-0 ms-3'>
+                          {chat.isTyping ? (
+                            <>
+                              typing
+                              <span className='animate-typing'>
+                                <span className='dot ms-1'></span>
+                                <span className='dot ms-1'></span>
+                                <span className='dot ms-1'></span>
+                              </span>
+                            </>
+                          ) : (
+                            <>
+                              {chat.messages &&
+                              chat.messages.length > 0 &&
+                              chat.messages[chat.messages.length - 1]
+                                .isImageMessage === true ? (
+                                <i className='ri-image-fill align-middle me-1'></i>
+                              ) : null}
+                              {chat.messages &&
+                              chat.messages.length > 0 &&
+                              chat.messages[chat.messages.length - 1]
+                                .isFileMessage === true ? (
+                                <i className='ri-file-text-fill align-middle me-1'></i>
+                              ) : null}
+                              {chat.messages && chat.messages.length > 0
+                                ? chat.messages[chat.messages.length - 1]
+                                    .message
+                                : null}
+                            </>
+                          )}
+                        </p>
+                      </div>
+                      <div className='font-size-11'>
+                        {chat.messages && chat.messages.length > 0
+                          ? chat.messages[chat.messages.length - 1].time
+                          : null}
+                      </div>
+                      {chat.unRead === 0 ? null : (
+                        <div className='unread-message' id={'unRead' + chat.id}>
+                          <span className='badge badge-soft-danger rounded-pill'>
+                            {chat.messages && chat.messages.length > 0
+                              ? chat.unRead >= 20
+                                ? chat.unRead + '+'
+                                : chat.unRead
+                              : ''}
+                          </span>
+                        </div>
+                      )}
+                    </div>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </SimpleBar>
+        </div>
+        {/* End chat-message-list */}
       </div>
     </React.Fragment>
   );
 };
 
-export default ChatInput;
+export default Chats;

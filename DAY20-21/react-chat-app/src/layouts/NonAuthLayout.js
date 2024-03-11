@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-const NonAuthLayout = (props) => {
+const NonAuthLayout = props => {
   return <React.Fragment>{props.children}</React.Fragment>;
 };
 

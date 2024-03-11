@@ -13,7 +13,13 @@ export const GNB = () => {
         <Link to='/login'>로그인</Link>
       </span>
       <span>
+        <Link to='/login2'>로그인2</Link>
+      </span>
+      <span>
         <Link to='/profile'>프로필</Link>
+      </span>{' '}
+      <span>
+        <Link to='/profile2'>프로필2</Link>
       </span>
     </div>
   );

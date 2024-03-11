@@ -31,6 +31,8 @@ const Login = () => {
           globalDispatch(
             userLogin(res.data.data.token, res.data.data.loginUser)
           );
+
+          // axios.defaults.headers.common['Authorization'] = 'Bearer ' + res.data.data.token;
           navigate('/');
         }
       })

@@ -2,18 +2,21 @@ import React from 'react';
 
 import { TabContent, TabPane } from 'reactstrap';
 
-//현재 사용자의 프로필 정보 표시 컴포넌트
 import Profile from './Tabs/Profile';
 
-//채팅영역 컴포넌트
 import Chats from './Tabs/Chats';
 
+import Groups from './Tabs/Groups';
+
+import { connect } from 'react-redux';
+
+import { setActiveTab } from '../../redux/actions';
+
 const ChatLeftSidebar = props => {
-  //현재 전역메뉴 선택된 탭아이디 정보조회-리덕스 전역데이터에서 호출(Layout리듀서에서)
-  //채팅 탭 선택 기능을 아래 변수에 선택 적용해서 컴포넌트를 선택해 출력할수 있습니다.
+  const activeTab = props.activeTab;
   //const activeTab = "profile"; //props.activeTab;
-  const activeTab = 'profile';
-  // const activeTab = "group";
+  //const activeTab = "chat";
+  //const activeTab = "group";
   // const activeTab = "contacts";
   // const activeTab = "settings";
 
@@ -29,11 +32,11 @@ const ChatLeftSidebar = props => {
             <Chats recentChatList={props.recentChatList} />
           </TabPane>
 
-          {/* <TabPane tabId="group" id="pills-groups">
+          <TabPane tabId='group' id='pills-groups'>
             <Groups />
           </TabPane>
 
-          <TabPane tabId="contacts" id="pills-contacts">
+          {/* <TabPane tabId="contacts" id="pills-contacts">
             <Contacts />
           </TabPane>
 
@@ -46,4 +49,12 @@ const ChatLeftSidebar = props => {
   );
 };
 
-export default ChatLeftSidebar;
+const mapStateToProps = state => {
+  return {
+    ...state.Layout,
+  };
+};
+
+// export default ChatLeftSidebar;
+
+export default connect(mapStateToProps, { setActiveTab })(ChatLeftSidebar);

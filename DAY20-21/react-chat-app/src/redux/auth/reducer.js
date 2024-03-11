@@ -1,4 +1,3 @@
-// 액션 타입 참조
 import { USER_LOGIN } from '../../constants/actionTypes';
 
 const INIT_STATE = {
@@ -6,7 +5,7 @@ const INIT_STATE = {
   loginUser: {},
 };
 
-export const Auth = (state = INIT_STATE, action) => {
+const Auth = (state = INIT_STATE, action) => {
   switch (action.type) {
     case USER_LOGIN:
       return {
@@ -18,3 +17,4 @@ export const Auth = (state = INIT_STATE, action) => {
       return { ...state };
   }
 };
+export default Auth;

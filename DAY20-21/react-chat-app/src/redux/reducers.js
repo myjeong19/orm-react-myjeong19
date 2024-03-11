@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-// import { Todo } from './todo/reducer';
-import { Auth } from './auth/reducer';
 
-//* reducer 파일 통합 combineReducers
-export default combineReducers({ Auth });
+import Auth from './auth/reducer';
+import Layout from './layout/reducer';
+
+export default combineReducers({ Auth, Layout });
