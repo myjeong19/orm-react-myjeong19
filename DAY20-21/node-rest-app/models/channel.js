@@ -34,6 +34,7 @@ module.exports = function (sequelize, DataTypes) {
         allowNull: false,
         comment: '최대 접속자 제한수',
       },
+
       channel_desc: {
         type: DataTypes.STRING(100),
         allowNull: true,
@@ -65,6 +66,7 @@ module.exports = function (sequelize, DataTypes) {
         comment: '수정자고유번호',
       },
     },
+
     {
       sequelize,
       tableName: 'channel',

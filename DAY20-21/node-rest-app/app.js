@@ -13,13 +13,16 @@ const cors = require('cors');
 var sequelize = require('./models/index.js').sequelize;
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users.js');
+var usersRouter = require('./routes/users');
 
 //게시글 정보처리 전용 RESTAPI 라우터파일 참조
-var articleAPIRouter = require('./routes/articleAPI.js');
+var articleAPIRouter = require('./routes/articleAPI');
 
 //회원정보 데이터 처리 전용 RESTAPI 라우터 참조
-var memberAPIRouter = require('./routes/memberAPI.js');
+var memberAPIRouter = require('./routes/memberAPI');
+
+//채팅 RESTful API라우터파일 참조하기
+var chatAPIRouter = require('./routes/chatAPI');
 
 var app = express();
 
@@ -43,6 +46,9 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 app.use('/api', articleAPIRouter);
+
+//chat라우팅 기본주소 설정하기
+app.use('/api/chat', chatAPIRouter);
 
 //회원정보처리 전용 RESTAPI라우터의 기본호출주소 체계 정의
 //http://localhost:3005/api/member

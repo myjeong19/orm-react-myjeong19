@@ -920,10 +920,7 @@ const Index = props => {
   return (
     <React.Fragment>
       <ChatLeftSidebar recentChatList={globalData.users} />
-      {/* <ChatLeftSidebar recentChatList={props.users} /> */}
-
       <UserChat recentChatList={globalData.users} active_user={3} />
-      {/* <UserChat recentChatList={props.users} /> */}
     </React.Fragment>
   );
 };

@@ -12,14 +12,16 @@ import {
   DropdownMenu,
 } from 'reactstrap';
 
-import classnames from 'classnames';
-import { connect, useDispatch, useSelector } from 'react-redux';
+import { connect } from 'react-redux';
 
 import { setActiveTab } from '../redux/actions';
+
+import classnames from 'classnames';
 
 import logo from '../assets/images/logo.svg';
 import avatar1 from '../assets/images/users/avatar-1.jpg';
 
+// falgs
 import usFlag from '../assets/images/flags/us.jpg';
 import spain from '../assets/images/flags/spain.jpg';
 import germany from '../assets/images/flags/germany.jpg';
@@ -59,6 +61,8 @@ const LeftSidebarMenu = props => {
           </Link>
         </div>
 
+        {/* end navbar-brand-box  */}
+
         <div className='flex-lg-column my-auto'>
           <Nav
             className='side-menu-nav nav-pills justify-content-center'
@@ -77,9 +81,11 @@ const LeftSidebarMenu = props => {
                 <i className='ri-user-2-line'></i>
               </NavLink>
             </NavItem>
+
             <UncontrolledTooltip target='profile' placement='top'>
               Profile
             </UncontrolledTooltip>
+
             <NavItem id='Chats'>
               <NavLink
                 id='pills-chat-tab'
@@ -96,6 +102,7 @@ const LeftSidebarMenu = props => {
             <UncontrolledTooltip target='Chats' placement='top'>
               Chats
             </UncontrolledTooltip>
+
             <NavItem id='Groups'>
               <NavLink
                 id='pills-groups-tab'
@@ -112,6 +119,7 @@ const LeftSidebarMenu = props => {
             <UncontrolledTooltip target='Groups' placement='top'>
               Groups
             </UncontrolledTooltip>
+
             <NavItem id='Contacts'>
               <NavLink
                 id='pills-contacts-tab'
@@ -128,6 +136,7 @@ const LeftSidebarMenu = props => {
             <UncontrolledTooltip target='Contacts' placement='top'>
               Contacts
             </UncontrolledTooltip>
+
             <NavItem id='Settings'>
               <NavLink
                 id='pills-setting-tab'
@@ -161,7 +170,7 @@ const LeftSidebarMenu = props => {
                     toggleTab('profile');
                   }}
                 >
-                  Profile
+                  Profile{' '}
                   <i className='ri-profile-line float-end text-muted'></i>
                 </DropdownItem>
                 <DropdownItem
@@ -169,12 +178,12 @@ const LeftSidebarMenu = props => {
                     toggleTab('settings');
                   }}
                 >
-                  Setting
+                  Setting{' '}
                   <i className='ri-settings-3-line float-end text-muted'></i>
                 </DropdownItem>
                 <DropdownItem divider />
                 <DropdownItem href='/logout'>
-                  Log out
+                  Log out{' '}
                   <i className='ri-logout-circle-r-line float-end text-muted'></i>
                 </DropdownItem>
               </DropdownMenu>
@@ -196,7 +205,7 @@ const LeftSidebarMenu = props => {
               </DropdownToggle>
               <DropdownMenu>
                 <DropdownItem>
-                  <img src={usFlag} alt='user' className='me-1' height='12' />
+                  <img src={usFlag} alt='user' className='me-1' height='12' />{' '}
                   <span className='align-middle'>English</span>
                 </DropdownItem>
               </DropdownMenu>
@@ -228,7 +237,7 @@ const LeftSidebarMenu = props => {
                     toggleTab('profile');
                   }}
                 >
-                  Profile
+                  Profile{' '}
                   <i className='ri-profile-line float-end text-muted'></i>
                 </DropdownItem>
                 <DropdownItem
@@ -236,12 +245,12 @@ const LeftSidebarMenu = props => {
                     toggleTab('settings');
                   }}
                 >
-                  Setting
+                  Setting{' '}
                   <i className='ri-settings-3-line float-end text-muted'></i>
                 </DropdownItem>
                 <DropdownItem divider />
                 <DropdownItem href='/logout'>
-                  Log out
+                  Log out{' '}
                   <i className='ri-logout-circle-r-line float-end text-muted'></i>
                 </DropdownItem>
               </DropdownMenu>
@@ -254,10 +263,6 @@ const LeftSidebarMenu = props => {
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    ...state.Layout,
-  };
-};
-
-export default connect(mapStateToProps, { setActiveTab })(LeftSidebarMenu);
+// export default LeftSidebarMenu;
+//connect(전역데이터속성을props하위속성으로 넣어주는 함수호출, {props의 하위함수로 액션함수룰 추가해주는설정})
+export default connect(null, { setActiveTab })(LeftSidebarMenu);

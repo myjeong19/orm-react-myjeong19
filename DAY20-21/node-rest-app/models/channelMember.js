@@ -34,6 +34,7 @@ module.exports = function (sequelize, DataTypes) {
         allowNull: true,
         comment: '마지막 채널 접속일시',
       },
+
       last_out_date: {
         type: DataTypes.DATE,
         allowNull: true,

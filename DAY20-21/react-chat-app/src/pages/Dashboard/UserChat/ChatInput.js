@@ -1,18 +1,30 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Input, InputGroup } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 //simplebar
 //yarn add simplebar-react
 import SimpleBar from 'simplebar-react';
 
-import OnlineUsers from './OnlineUsers';
+import OnlineUsers from '../Tabs/OnlineUsers';
 
 const Chats = props => {
+  console.log(props.recentChatList, 'props.recentChatList');
+
   const [chatBar, setChatBar] = useState({
     searchChat: '조회',
-    recentChatList: props.recentChatList,
+    recentChatList: [],
   });
+
+  // useEffect(() => {
+  //   setChatBar(prevChatBar => {
+  //     return {
+  //       ...prevChatBar,
+  //       recentChatList: [...chatBar.recentChatList, ...props.recentChatList],
+  //     };
+  //   });
+  // }, [chatBar.recentChatList, props.recentChatList]);
 
   const openUserChat = (e, chat) => {
     console.log('선택한 채팅 채널정보============', chat);
@@ -212,3 +224,7 @@ const Chats = props => {
 };
 
 export default Chats;
+
+Chats.propTypes = {
+  recentChatList: PropTypes.array,
+};
